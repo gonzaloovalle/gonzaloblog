@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:replace="partials/header :: header-links">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -8,6 +8,7 @@
     <title>Roll Results</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 <h1>You guessed: <span th:text="${guess}"></span></h1>
 <h1>The 1st number was: <span th:text="${randomNumber1}"></span></h1>
 <h1>The 2nd number was: <span th:text="${randomNumber2}"></span></h1>
@@ -17,5 +18,7 @@
 <h3 th:text="${message}"></h3>
 
 <a href="/roll-dice">Play again!</a>
+
+<div th:replace="partials/scripts :: assets"></div>
 </body>
 </html>
