@@ -6,8 +6,11 @@
 
 <h1>Here is a single post!</h1>
 <h2 th:text="${post.title}"></h2>
-<h2 th:text="${post.body}"></h2>
+<p th:text="'Authored by ' + ${post.user.email}"></p>
+<p th:text="${post.body}"></p>
 
 <div th:replace="partials/scripts :: assets"></div>
+
+<a th:href="@{|/post.id/edit|}">Edit Post</a>
 </body>
 </html>
