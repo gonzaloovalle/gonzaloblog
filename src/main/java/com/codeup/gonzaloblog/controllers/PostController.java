@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 class PostController {
@@ -38,6 +39,9 @@ class PostController {
 
         return "posts/index";
     }
+
+//    @GetMapping("/posts/api")
+//    public Map<String, String> postsApi
 
     @GetMapping("/posts/{id}")
     public String postView(Model model, @PathVariable long id ) {
@@ -77,7 +81,7 @@ class PostController {
                 + ". Thank you for creating a post. Your post id is "
                 + savedPost.getId();
         emailService.prepareAndSend(savedPost, subject, body);
-        return "redirect:/posts/";
+        return "redirect:/posts";
     }
 
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: header-links">
+<head th:replace="partials/header :: header-links">
     <meta charset="UTF-8">
     <title>Create</title>
 </head>
@@ -11,7 +11,7 @@
 <div class="container">
     <h1>Create Post</h1>
 
-    <form th:action="@{/posts/create}" th:method="POST" th:object="${post}"></form>
+    <form th:action="@{/posts/create}" th:method="POST" th:object="${post}">
         <div class="form-group">
             <label for="title">Title</label>
             <input class="form-control" type="text" id="title" th:field="*{title}"/>
@@ -22,6 +22,7 @@
         </div>
 
         <input class="btn btn-block btn-primary" type="submit" value="Create Post"/>
+    </form>
 </div>
 
 </body>
