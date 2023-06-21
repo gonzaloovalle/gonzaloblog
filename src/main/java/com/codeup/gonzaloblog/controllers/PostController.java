@@ -5,27 +5,22 @@ import com.codeup.gonzaloblog.models.User;
 import com.codeup.gonzaloblog.repositories.PostRepository;
 import com.codeup.gonzaloblog.repositories.UserRepository;
 import com.codeup.gonzaloblog.services.EmailService;
-import com.codeup.gonzaloblog.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 class PostController {
 
     private final PostRepository postsDao;
     private final UserRepository usersDao;
-    private final UserService userService;
     private final EmailService emailService;
 
-    public PostController(PostRepository postsDao, UserRepository usersDao, UserService userService, EmailService emailService) {
+    public PostController(PostRepository postsDao, UserRepository usersDao, EmailService emailService) {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
-        this.userService = userService;
         this.emailService = emailService;
     }
 
@@ -63,7 +58,7 @@ class PostController {
         return "redirect:/posts";
     }
 
-    @GetMapping("/posts/create")
+    @GetMapping("/posts-create")
     public String postForm(Model model) {
         model.addAttribute("post", new Post());
             return "posts/create";

@@ -1,9 +1,9 @@
 package com.codeup.gonzaloblog.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "posts")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
